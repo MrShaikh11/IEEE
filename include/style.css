@@ -16,9 +16,12 @@ body {
     width: 100%;
     min-height: 100vh;
     backdrop-filter: blur(1px);
-    pointer-events: none;
+    /* pointer-events: none; */
 }
+.banner{
+    pointer-events: none;
 
+}
 .container nav {
     width: 100%;
     display: flex;
@@ -94,7 +97,9 @@ body {
 .textBox h1 {
     font-size: 3.4em;
 }
-
+.banner a{
+    text-decoration: none;
+}
 .textBox h1 span {
     color: #00bfff;
 }

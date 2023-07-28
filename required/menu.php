@@ -16,13 +16,15 @@
 
         </div>
     </div>
-    <div class="container">
-        <nav>
-            <h1><span>IEEE</span>MHSSCE</h1>
+    <div class="container ">
+        <nav class="banner">
+            <a href="index.php">
+                <h1><span>IEEE</span>MHSSCE</h1>
+            </a>
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="about-us.php">About Us</a></li>
-                <li>Our Team</li>
+                <li><a href="our-team.php">Our Team</a></li>
                 <li>Events</li>
                 <li><a href="contact-us.php">Contact us</a></li>
             </ul>
