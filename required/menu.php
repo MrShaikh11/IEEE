@@ -5,8 +5,8 @@
     <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="about-us.php">About Us</a></li>
-        <li><a href="ieam">Our Team</a></li>
-        <li>Events</li>
+        <li><a href="our-team.php">Our Team</a></li>
+        <li><a href="event-detail.php">Events</a></li>
         <li><a href="contact-us.php">Contact us</a></li>
     </ul>
 </nav>
