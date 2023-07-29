@@ -1,4 +1,4 @@
-<!-- <?php require 'required/menu.php' ?> -->
+<?php require 'required/menu.php' ?>
 
 <section>
     <style>

@@ -1,5 +1,5 @@
+/* Navbar and Banner (Sammer Sahu) Start */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -7,22 +7,18 @@
 }
 
 body {
-    color: #fff;
-    background: #111;
+    background: #fff;
+    color   : #111;
     font-family: 'Poppins', sans-serif;
 }
 
-.container {
-    width: 100%;
-    min-height: 100vh;
-    backdrop-filter: blur(1px);
-    /* pointer-events: none; */
-}
-.banner{
-    pointer-events: none;
 
-}
-.container nav {
+
+nav {
+
+    /* background-color: black; */
+    position: absolute;
+    z-index:2 ;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -32,7 +28,7 @@ body {
     align-items: center;
 }
 
-.container nav h1 {
+nav h1 {
     font-size: 2.6em;
     color: #fff;
     position: relative;
@@ -41,15 +37,15 @@ body {
     letter-spacing: 4px;
 }
 
-.container nav h1 span {
+nav h1 span {
     color: #00bfff;
 }
 
-.container nav ul {
+nav ul {
     display: flex;
 }
 
-.container nav ul li {
+nav ul li {
     position: relative;
     list-style: none;
     font-size: 1.5em;
@@ -60,7 +56,7 @@ body {
     overflow: hidden;
 }
 
-.container nav ul li::after {
+nav ul li::after {
     content: '';
     position: absolute;
     bottom: 5px;
@@ -72,20 +68,28 @@ body {
     transition: .3s;
 }
 
-.container nav li:hover {
+nav li:hover {
     color: #00bfff;
 }
 
-.container nav li:hover::after {
+nav li:hover::after {
     width: 80%;
 }
 
-.container nav ul li a {
+nav ul li a {
     text-decoration: none;
     color: white;
 }
 
-.container section {
+.banner {
+    text-align: center !important;
+    width: 100%;
+    min-height: 100vh;
+    backdrop-filter: blur(1px);
+    pointer-events: none;
+}
+
+.banner .container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,9 +101,7 @@ body {
 .textBox h1 {
     font-size: 3.4em;
 }
-.banner a{
-    text-decoration: none;
-}
+
 .textBox h1 span {
     color: #00bfff;
 }
@@ -129,9 +131,9 @@ body {
     background: #03e9f4;
     color: #050801;
     box-shadow: 0 0 5px #03e9f4,
-        0 0 25px #03e9f4,
-        0 0 50px #03e9f4,
-        0 0 200px #03e9f4;
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
 }
 
 /* a
@@ -168,7 +170,7 @@ a:hover
     grid-template-rows: repeat(20, 1fr);
     background: #1d1d1d;
     filter: saturate(2);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .colorBox {
@@ -205,3 +207,224 @@ a:hover
         top: 120%;
     }
 }
+/* Navbar and Banner (Sammer Sahu) End */
+
+/* Ashlesha Start */
+
+.main {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.con {
+    position: relative;
+    width: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.con .cd {
+    position: relative;
+    width: 300px;
+    height: 215px;
+    box-shadow: 0 10px 202px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #b95ce4, #4f29cd);
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease-in-out;
+}
+
+.con .cd:hover {
+    height: 450px;
+}
+
+.con .cd .imgbox {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    top: -60px;
+    left: 20px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+.con .cd .imgbox img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.con .cd .content {
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.con .cd:hover .content {
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: 0.3s;
+}
+
+/* Ashlesha End */
+
+/* Our Team (Sameer Sahu) Start */
+
+body {
+    font-family: "Open sans", sans-serif;
+    color: #444444;
+}
+
+#ieam {
+    margin-top: 3rem;
+    ;
+}
+
+.social a {
+    color: #e03a3c;
+}
+
+.social a:hover {
+    color: #e03a3c;
+    text-decoration: none;
+}
+
+.team .member {
+    margin-bottom: 20px;
+    /* overflow: hidden; */
+    border-radius: 5px;
+    background: #fff;
+}
+
+.team .member .member-img {
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.team .member .social {
+    position: absolute;
+    left: 0;
+    bottom: 30px;
+    right: 0;
+    opacity: 0;
+    transition: ease-in-out 0.3s;
+    text-align: center;
+}
+
+.team .member:hover .social {
+    opacity: 1;
+    bottom: 15px;
+}
+
+.team .member .social a {
+    transition: color 0.3s;
+    color: #111111;
+    margin: 0 3px;
+    padding-top: 7px;
+    border-radius: 50px;
+    width: 36px;
+    height: 36px;
+    background: #e03a3c;
+    display: inline-block;
+    transition: ease-in-out 0.3s;
+    color: #fff;
+}
+
+.team .member .social a:hover {
+    background: #111111;
+}
+
+.team .member .social i {
+    font-size: 18px;
+}
+
+.team.member .member-info {
+    padding: 25px 15px;
+}
+
+.team.member .member-img h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #111111;
+}
+
+.imge {
+    height: 200px;
+    width: 500px;
+}
+
+.team .member .member-info span {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #8d8c8c;
+}
+
+section {
+    padding: 60px 0;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #e03a3c;
+    bottom: 0;
+    left: calc(49% - 25px);
+}
+
+.section-title p {
+    margin-bottom: 0;
+}
+
+.section-bg {
+    padding: 120px 0;
+    color: #fff;
+}
+
+.section-bg::before {
+    content: "";
+    background: #1b1b1b;
+    position: absolute;
+    bottom: 60px;
+    top: 60px;
+    left: 0;
+    right: 0;
+    transform: skewY(-3deg);
+}
+
+/* Our Team (Sameer Sahu) End */
