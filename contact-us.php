@@ -11,323 +11,508 @@
 </head>
 
 <body>
-    <?php require 'required/menu.php' ?>
-
+    <!-- <?php require 'required/menu.php' ?> -->
     <style>
-        *,
-        *:before,
-        *:after {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
-        body {
-            /* background: linear-gradient(to right, #ea1d6f 0%, #eb466b 100%); */
-            font-size: 12px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body,
-        button,
-        input {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            letter-spacing: 1.4px;
-        }
-
-        .background {
-            display: flex;
-            min-height: 100vh;
+        input,
+        textarea {
+            font-family: "Poppins", sans-serif;
         }
 
         .container {
-            flex: 0 1 700px;
-            margin: auto;
-            padding: 10px;
-        }
-
-        .screen {
             position: relative;
-            background: #3e3e3e;
-            border-radius: 15px;
+            width: 100%;
+            min-height: 100vh;
+            padding: 2rem;
+            background-color: #fafafa;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .screen:after {
-            content: '';
-            display: block;
+        .form {
+            width: 100%;
+            max-width: 820px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .contact-form {
+            background-color: #1abc9c;
+            position: relative;
+        }
+
+        .circle {
+            border-radius: 50%;
+            background: linear-gradient(135deg, transparent 20%, #149279);
+            position: absolute;
+        }
+
+        .circle.one {
+            width: 130px;
+            height: 130px;
+            top: 130px;
+            right: -40px;
+        }
+
+        .circle.two {
+            width: 80px;
+            height: 80px;
+            top: 10px;
+            right: 30px;
+        }
+
+        .contact-form:before {
+            content: "";
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background-color: #1abc9c;
+            transform: rotate(45deg);
+            top: 50px;
+            left: -13px;
+        }
+
+        form {
+            padding: 2.3rem 2.2rem;
+            z-index: 10;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .title {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-bottom: 0.7rem;
+        }
+
+        .input-container {
+            position: relative;
+            margin: 1rem 0;
+        }
+
+        .input {
+            width: 100%;
+            outline: none;
+            border: 2px solid #fafafa;
+            background: none;
+            padding: 0.6rem 1.2rem;
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        textarea.input {
+            padding: 0.8rem 1.2rem;
+            min-height: 150px;
+            border-radius: 22px;
+            resize: none;
+            overflow-y: auto;
+        }
+
+        .input-container label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            padding: 0 0.4rem;
+            color: #fafafa;
+            font-size: 0.9rem;
+            font-weight: 400;
+            pointer-events: none;
+            z-index: 1000;
+            transition: 0.5s;
+        }
+
+        .input-container.textarea label {
+            top: 1rem;
+            transform: translateY(0);
+        }
+
+        .btn {
+            padding: 0.6rem 1.3rem;
+            background-color: #fff;
+            border: 2px solid #fafafa;
+            font-size: 0.95rem;
+            color: #1abc9c;
+            line-height: 1;
+            border-radius: 25px;
+            outline: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 0;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .input-container span {
             position: absolute;
             top: 0;
-            left: 20px;
-            right: 20px;
-            bottom: 0;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
-            z-index: -1;
+            left: 25px;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            padding: 0 0.4rem;
+            color: transparent;
+            pointer-events: none;
+            z-index: 500;
         }
 
-        .screen-header {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background: #4d4d4f;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
-
-        .screen-header-left {
-            margin-right: auto;
-        }
-
-        .screen-header-button {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            margin-right: 3px;
-            border-radius: 8px;
-            background: white;
-        }
-
-        .screen-header-button.close {
-            background: #ed1c6f;
-        }
-
-        .screen-header-button.maximize {
-            background: #e8e925;
-        }
-
-        .screen-header-button.minimize {
-            background: #74c54f;
-        }
-
-        .screen-header-right {
-            display: flex;
-        }
-
-        .screen-header-ellipsis {
-            width: 3px;
-            height: 3px;
-            margin-left: 2px;
-            border-radius: 8px;
-            background: #999;
-        }
-
-        .screen-body {
-            display: flex;
-        }
-
-        .screen-body-item {
-            flex: 1;
-            padding: 50px;
-        }
-
-        .screen-body-item.left {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .app-title {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            color: #ea1d6f;
-            font-size: 26px;
-        }
-
-        .app-title:after {
-            content: '';
-            display: block;
+        .input-container span:before,
+        .input-container span:after {
+            content: "";
             position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 25px;
-            height: 4px;
-            background: #ea1d6f;
+            width: 10%;
+            opacity: 0;
+            transition: 0.3s;
+            height: 5px;
+            background-color: #1abc9c;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-        .app-contact {
-            margin-top: auto;
-            font-size: 8px;
-            color: pink;
+        .input-container span:before {
+            left: 50%;
         }
 
-        .location {
+        .input-container span:after {
+            right: 50%;
+        }
+
+        .input-container.focus label {
+            top: 0;
+            transform: translateY(-50%);
+            left: 25px;
+            font-size: 0.8rem;
+        }
+
+        .input-container.focus span:before,
+        .input-container.focus span:after {
+            width: 50%;
+            opacity: 1;
+        }
+
+        .contact-info {
+            padding: 2.3rem 2.2rem;
             position: relative;
-            color: pink;
         }
 
-        .app-form-group {
-            margin-bottom: 15px;
+        .contact-info .title {
+            color: #1abc9c;
         }
 
-        .app-form-group.message {
-            margin-top: 40px;
+        .text {
+            color: #333;
+            margin: 1.5rem 0 2rem 0;
         }
 
-        .app-form-group.buttons {
-            margin-bottom: 0;
-            text-align: right;
-        }
-
-        .app-form-control {
-            width: 100%;
-            padding: 10px 0;
-            background: none;
-            border: none;
-            border-bottom: 1px solid #666;
-            color: #ddd;
-            font-size: 14px;
-            text-transform: uppercase;
-            outline: none;
-            transition: border-color .2s;
-        }
-
-        .app-form-control::placeholder {
-            color: #666;
-        }
-
-        .app-form-control:focus {
-            border-bottom-color: #ddd;
-        }
-
-        .app-form-button {
-            background: none;
-            border: none;
-            color: #ea1d6f;
-            font-size: 14px;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .app-form-button:hover {
-            color: #b9134f;
-        }
-
-        .credits {
+        .information {
             display: flex;
-            justify-content: center;
+            color: #555;
+            margin: 0.7rem 0;
             align-items: center;
-            margin-top: 20px;
-            color: #ffa4bd;
-            font-family: 'Roboto Condensed', sans-serif;
-            font-size: 16px;
-            font-weight: normal;
+            font-size: 0.95rem;
         }
 
-        .credits-link {
+        .icon {
+            width: 28px;
+            margin-right: 0.7rem;
+        }
+
+        .social-media {
+            padding: 2rem 0 0 0;
+        }
+
+        .social-media p {
+            color: #333;
+        }
+
+        .social-icons {
             display: flex;
-            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #1abc9c, #149279);
             color: #fff;
-            font-weight: bold;
-            text-decoration: none;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 0.5rem;
+            transition: 0.3s;
         }
 
-        .dribbble {
-            width: 20px;
-            height: 20px;
-            margin: 0 5px;
+        .social-icons a:hover {
+            transform: scale(1.05);
         }
 
-        @media screen and (max-width: 520px) {
-            .screen-body {
-                flex-direction: column;
+        .contact-info:before {
+            content: "";
+            position: absolute;
+            width: 110px;
+            height: 100px;
+            border: 22px solid #1abc9c;
+            border-radius: 50%;
+            bottom: -77px;
+            right: 50px;
+            opacity: 0.3;
+        }
+
+        .big-circle {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #1cd4af, #159b80);
+            bottom: 50%;
+            right: 50%;
+            transform: translate(-40%, 38%);
+        }
+
+        .big-circle:after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            background-color: #fafafa;
+            border-radius: 50%;
+            top: calc(50% - 180px);
+            left: calc(50% - 180px);
+        }
+
+        .square {
+            position: absolute;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(181%, 11%);
+            opacity: 0.2;
+        }
+
+        @media (max-width: 850px) {
+            .form {
+                grid-template-columns: 1fr;
             }
 
-            .screen-body-item.left {
-                margin-bottom: 30px;
+            .contact-info:before {
+                bottom: initial;
+                top: -75px;
+                right: 65px;
+                transform: scale(0.95);
             }
 
-            .app-title {
-                flex-direction: row;
+            .contact-form:before {
+                top: -13px;
+                left: initial;
+                right: 70px;
             }
 
-            .app-title span {
-                margin-right: 12px;
+            .square {
+                transform: translate(140%, 43%);
+                height: 350px;
             }
 
-            .app-title:after {
+            .big-circle {
+                bottom: 75%;
+                transform: scale(0.9) translate(-40%, 30%);
+                right: 50%;
+            }
+
+            .text {
+                margin: 1rem 0 1.5rem 0;
+            }
+
+            .social-media {
+                padding: 1.5rem 0 0 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .contact-info:before {
                 display: none;
             }
-        }
 
-        @media screen and (max-width: 600px) {
-            .screen-body {
-                padding: 40px;
+            .square,
+            .big-circle {
+                display: none;
             }
 
-            .screen-body-item {
-                padding: 0;
+            form,
+            .contact-info {
+                padding: 1.7rem 1.6rem;
+            }
+
+            .text,
+            .information,
+            .social-media p {
+                font-size: 0.8rem;
+            }
+
+            .title {
+                font-size: 1.15rem;
+            }
+
+            .social-icons a {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+            }
+
+            .icon {
+                width: 23px;
+            }
+
+            .input {
+                padding: 0.45rem 1.2rem;
+            }
+
+            .btn {
+                padding: 0.45rem 1.2rem;
             }
         }
     </style>
     </head>
 
     <body>
-        <div class="background">
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Contact Form</title>
+            <link rel="stylesheet" href="style.css" />
+            <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+        </head>
+
+        <body>
             <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="screen">
-                            <div class="screen-header">
-                                <div class="screen-header-left">
-                                    <div class="screen-header-button close"></div>
-                                    <div class="screen-header-button maximize"></div>
-                                    <div class="screen-header-button minimize"></div>
-                                </div>
-                                <div class="screen-header-right">
-                                    <div class="screen-header-ellipsis"></div>
-                                    <div class="screen-header-ellipsis"></div>
-                                    <div class="screen-header-ellipsis"></div>
-                                </div>
+                <span class="big-circle"></span>
+                <img src="images/shape.png" class="square" alt="" />
+                <div class="form">
+                    <div class="contact-info">
+                        <h3 class="title">Let's get in touch</h3>
+                        <p class="text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                            dolorum adipisci recusandae praesentium dicta!
+                        </p>
+
+                        <div class="info">
+                            <div class="information">
+                                <img src="images/location.png" class="icon" alt="" />
+                                <p>92 Cherry Drive Uniondale, NY 11553</p>
                             </div>
-                            <div class="screen-body">
-                                <div class="screen-body-item left">
-                                    <div class="app-title">
-                                        <span>CONTACT</span>
-                                        <span>US</span>
-                                    </div>
-                                    <div class="app-contact">LOCATION INFO:
-                                        <a class="location" href="https://maps.app.goo.gl/UhqnMsrpdHFCPzDD9">M . H SABOO SIDDIK COLLEGE OF ENGINEERING, 8, Shepherd Rd, Police Colony, Nagpada, Byculla, Mumbai, Maharashtra 400008</a>
-                                    </div>
-                                </div>
-                                <div class="screen-body-item">
-                                    <div class="app-form">
-                                        <div class="app-form-group">
-                                            <input class="app-form-control" placeholder="NAME" value="">
-                                        </div>
-                                        <div class="app-form-group">
-                                            <input class="app-form-control" placeholder="EMAIL">
-                                        </div>
-                                        <div class="app-form-group">
-                                            <input class="app-form-control" placeholder="CONTACT NO">
-                                        </div>
-                                        <div class="app-form-group message">
-                                            <input class="app-form-control" placeholder="MESSAGE">
-                                        </div>
-                                        <div class="app-form-group buttons">
-                                            <button class="app-form-button">CANCEL</button>
-                                            <button class="app-form-button">SEND</button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="information">
+                                <img src="images/email.png" class="icon" alt="" />
+                                <p>lorem@ipsum.com</p>
+                            </div>
+                            <div class="information">
+                                <img src="images/phone.png" class="icon" alt="" />
+                                <p>123-456-789</p>
                             </div>
                         </div>
-                        <div class="credits">
 
-                            <a class="credits-link" href="https://dribbble.com/shots/2666271-Contact" target="_blank">
-                                <svg class="dribbble" viewBox="0 0 200 200">
-                                    <g stroke="#ffffff" fill="none">
-                                        </path>
-                                        <path </g>
-                                </svg>
-
-                            </a>
+                        <div class="social-media">
+                            <p>Connect with us :</p>
+                            <div class="social-icons">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6"></div>
+
+                    <div class="contact-form">
+                        <span class="circle one"></span>
+                        <span class="circle two"></span>
+
+                        <form action="index.html" autocomplete="off">
+                            <h3 class="title">Contact us</h3>
+                            <div class="input-container">
+                                <input type="text" name="name" class="input" />
+                                <label for="">Username</label>
+                                <span>Username</span>
+                            </div>
+                            <div class="input-container">
+                                <input type="email" name="email" class="input" />
+                                <label for="">Email</label>
+                                <span>Email</span>
+                            </div>
+                            <div class="input-container">
+                                <input type="tel" name="phone" class="input" />
+                                <label for="">Phone</label>
+                                <span>Phone</span>
+                            </div>
+                            <div class="input-container textarea">
+                                <textarea name="message" class="input"></textarea>
+                                <label for="">Message</label>
+                                <span>Message</span>
+                            </div>
+                            <input type="submit" value="Send" class="btn" />
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <script>
+                const inputs = document.querySelectorAll(".input");
+
+                function focusFunc() {
+                    let parent = this.parentNode;
+                    parent.classList.add("focus");
+                }
+
+                function blurFunc() {
+                    let parent = this.parentNode;
+                    if (this.value == "") {
+                        parent.classList.remove("focus");
+                    }
+                }
+
+                inputs.forEach((input) => {
+                    input.addEventListener("focus", focusFunc);
+                    input.addEventListener("blur", blurFunc);
+                });
+            </script>
+        </body>
+
+        </html>
 
     </body>
 
