@@ -1,12 +1,33 @@
-<nav>
-    <a href="index.php">
-        <h1><span>IEEE</span>MHSSCE</h1>
-    </a>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="about-us.php">About Us</a></li>
-        <li><a href="our-team.php">Our Team</a></li>
-        <li><a href="event-detail.php">Events</a></li>
-        <li><a href="contact-us.php">Contact us</a></li>
-    </ul>
+<nav class="navbar navbar-expand-lg sticky-top navbar-transparent">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light heading" href="#">
+            <div class="my-1 img-fluid">
+
+                <img src="images/ieee logo.png" width="180px">
+            </div>
+
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#about-us">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#ieam">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#past">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>

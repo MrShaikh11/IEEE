@@ -1,19 +1,66 @@
+:root {
+    --blue: #1e90ff;
+    --grey: #808080;
+    --cream: #eee1c6;
+    --beige: #Ebd292;
+    --pink: #Ff007e;
+  }
+
 /* Navbar and Banner (Sammer Sahu) Start */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); */
+/* Add the background color for the solid navbar */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+    
+    body {
+        /* overflow-y: hidden; */
+        background: #fff;
+        color   : #111;
+        font-family: 'Montserrat', sans-serif;
+        /* font-weight:bold; */
+    /* font-family: 'Poppins', sans-serif; */
 }
 
-body {
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
     background: #fff;
-    color   : #111;
-    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+.navbar {
+  transition: background-color 0.3s ease-in-out;
 }
 
-.navbar-black{
-    background-color: black !important;
+.navbar.transparent {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.navbar.solid {
+  background-color: var(--blue) !important; /* Change this to the desired solid color */
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1) !important; /* Optional shadow effect */
 }
 
 
@@ -21,14 +68,14 @@ nav {
 
     /* background-color: black; */
     padding: 0 30px !important;
-    position: fixed;
-    z-index:2 ;
+    /* position: fixed; */
+    /* z-index:2 ; */
     width: 100%;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
     padding: 0 40px;
-    height: 65px;
+    /* height: 65px; */
     align-items: center;
 }
 
@@ -46,7 +93,7 @@ nav h1 {
 }
 
 nav h1 span {
-    color: #00bfff;
+    color: var(--blue);
 }
 
 nav ul {
@@ -71,13 +118,13 @@ nav ul li::after {
     width: 0%;
     height: 3px;
     left: 50%;
-    background: #00bfff;
+    background: var(--blue);
     transform: translateX(-50%);
     transition: .3s;
 }
 
 nav li:hover {
-    color: #00bfff;
+    color: var(--blue);
 }
 
 nav li:hover::after {
@@ -92,7 +139,7 @@ nav ul li a {
 .banner {
     text-align: center !important;
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     backdrop-filter: blur(1px);
     pointer-events: none;
 }
@@ -111,7 +158,7 @@ nav ul li a {
 }
 
 .textBox h1 span {
-    color: #00bfff;
+    color: var(--blue);
 }
 
 .textBox p {
@@ -136,12 +183,12 @@ nav ul li a {
 }
 
 .textBox .homeBtn:hover {
-    background: #03e9f4;
+    background: var(--blue);
     color: #050801;
-    box-shadow: 0 0 5px #03e9f4,
-    0 0 25px #03e9f4,
-    0 0 50px #03e9f4,
-    0 0 200px #03e9f4;
+    box-shadow: 0 0 5px var(--blue),
+    0 0 25px var(--blue),
+    0 0 50px var(--blue),
+    0 0 200px var(--blue);
 }
 
 /* a
@@ -150,22 +197,22 @@ nav ul li a {
     display: inline-block;
     padding: 25px 30px;
     margin: 40px 0;
-    color: #03e9f4;
+    color: var(--blue);
     font-size: 24px;
     text-decoration: none;
     text-transform: uppercase;
     transition: 0.5s;
     letter-spacing: 2px;
-    border: 1px solid #03e9f4; 
+    border: 1px solid var(--blue); 
 }
 a:hover
 {
-    background: #03e9f4;
+    background: var(--blue);
     color: #050801;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 200px #03e9f4;
+    box-shadow: 0 0 5px var(--blue),
+                0 0 25px var(--blue),
+                0 0 50px var(--blue),
+                0 0 200px var(--blue);
 } */
 .bgAnimation {
     position: absolute;
@@ -201,7 +248,7 @@ a:hover
     left: 0;
     width: 100%;
     height: 40px;
-    background: #00bfff;
+    background: var(--blue);
     filter: blur(60px);
     animation: animBack 6s linear infinite;
 }
@@ -298,7 +345,7 @@ body {
 }
 
 #ieam {
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     
 }
 
@@ -373,7 +420,8 @@ body {
 
 .imge {
     height: 200px;
-    width: 500px;
+    width: 300px;
+    align-items: center;
 }
 
 .team .member .member-info span {
@@ -384,7 +432,7 @@ body {
 }
 
 section {
-    padding: 60px 0;
+    /* padding: 60px 0; */
     /* overflow: hidden; */
     position: relative;
 }
@@ -395,8 +443,8 @@ section {
     position: relative;
 }
 
-.section-title h2 {
-    font-size: 32px;
+.section-title h1 {
+    font-size: 42px;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -426,13 +474,13 @@ section {
 
 .section-bg::before {
     content: "";
-    /* background: #1b1b1b; */
+    background: var(--cream);
     position: absolute;
     bottom: 60px;
     top: 60px;
     left: 0;
     right: 0;
-    transform: skewY(-3deg);
+    /* transform: skewY(-3deg); */
 }
 
 /* Our Team (Sameer Sahu) End */
@@ -594,6 +642,7 @@ footer {
     box-sizing: border-box;
 }
 
+
 body,
 input,
 textarea {
@@ -604,7 +653,7 @@ textarea {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 2rem;
+    /* padding: 2rem; */
     background-color: #fafafa;
     overflow: hidden;
     display: flex;
@@ -625,13 +674,13 @@ textarea {
 }
 
 .contact-form {
-    background-color: #1abc9c;
+    background-color: var(--blue);
     position: relative;
 }
 
 .circle {
     border-radius: 50%;
-    background: linear-gradient(135deg, transparent 20%, #149279);
+    background: linear-gradient(135deg, transparent 20%,var(--blue));
     position: absolute;
 }
 
@@ -654,7 +703,7 @@ textarea {
     position: absolute;
     width: 26px;
     height: 26px;
-    background-color: #1abc9c;
+    background-color: var(--blue);
     transform: rotate(45deg);
     top: 50px;
     left: -13px;
@@ -726,7 +775,7 @@ textarea.input {
     background-color: #fff;
     border: 2px solid #fafafa;
     font-size: 0.95rem;
-    color: #1abc9c;
+    color: var(--blue);
     line-height: 1;
     border-radius: 25px;
     outline: none;
@@ -760,7 +809,7 @@ textarea.input {
     opacity: 0;
     transition: 0.3s;
     height: 5px;
-    background-color: #1abc9c;
+    background-color: var(--blue);
     top: 50%;
     transform: translateY(-50%);
 }
@@ -792,7 +841,7 @@ textarea.input {
 }
 
 .contact-info .title {
-    color: #1abc9c;
+    color: var(--blue);
 }
 
 .text {
@@ -830,7 +879,7 @@ textarea.input {
     width: 35px;
     height: 35px;
     border-radius: 5px;
-    background: linear-gradient(45deg, #1abc9c, #149279);
+    background: linear-gradient(45deg,var(--blue), var(--beige));
     color: #fff;
     text-align: center;
     line-height: 35px;
@@ -847,7 +896,7 @@ textarea.input {
     position: absolute;
     width: 110px;
     height: 100px;
-    border: 22px solid #1abc9c;
+    border: 22px solid var(--blue);
     border-radius: 50%;
     bottom: -77px;
     right: 50px;
@@ -859,7 +908,7 @@ textarea.input {
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: linear-gradient(to bottom, #1cd4af, #159b80);
+    background: linear-gradient(to bottom, var(--blue), var(--blue));
     bottom: 50%;
     right: 50%;
     transform: translate(-40%, 38%);
